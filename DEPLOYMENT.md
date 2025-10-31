@@ -349,6 +349,32 @@ For issues or questions:
 2. Open an issue in the project repository
 3. Contact the development team
 
+## GitHub Pages (automatic via Actions)
+
+This repository already includes a GitHub Actions workflow at `.github/workflows/deploy.yml` that builds the site and deploys the `dist/` folder to the `gh-pages` branch. The workflow also writes a `CNAME` (set to `www.sf-moving.com`) so GitHub Pages will serve the site at your custom domain.
+
+Steps to publish using GitHub Pages with the included workflow:
+
+1. Ensure the repository is pushed to GitHub and your default branch is `main`.
+2. Confirm you have a DNS CNAME record for `www` pointing to `mehdozz007-stack.github.io` (example settings below).
+3. Push any changes to `main`. The workflow will run automatically and publish to the `gh-pages` branch.
+
+DNS settings (example):
+
+- Create a CNAME record:
+   - Name/Host: `www`
+   - Value/Points to: `mehdozz007-stack.github.io`
+
+- (Optional) To serve the apex domain `sf-moving.com` as well, add A records:
+   - 185.199.108.153
+   - 185.199.109.153
+   - 185.199.110.153
+   - 185.199.111.153
+
+After the workflow deploys, allow a few minutes for DNS propagation and for GitHub to provision TLS. Then visit `https://www.sf-moving.com`.
+
+If you'd rather publish from your machine (one-off), see the `gh-pages` instructions in README.
+
 ## License
 
 This project is proprietary software for S&F Moving. All rights reserved.

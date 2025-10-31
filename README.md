@@ -217,4 +217,10 @@ To deploy:
 
 ## Can I connect a custom domain to my project?
 
-Yes. Follow your hosting provider's domain/SSL configuration steps (Vercel, Netlify, Cloudflare, etc.).
+Yes. This project includes a GitHub Actions deploy workflow that can publish the site to GitHub Pages and set a custom domain. If you want to use GitHub Pages with the included workflow:
+
+- Ensure your repository is hosted at GitHub and your default branch is `main`.
+- Add a DNS CNAME record for `www` pointing to `mehdozz007-stack.github.io`.
+- Push to `main` — the workflow (`.github/workflows/deploy.yml`) will build and publish the site to the `gh-pages` branch and set `www.sf-moving.com` as the CNAME.
+
+See `DEPLOYMENT.md` for full instructions and DNS examples.
