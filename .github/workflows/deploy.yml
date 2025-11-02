@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+# Grant permissions required to publish to GitHub Pages and push commit via GITHUB_TOKEN
+permissions:
+  contents: write
+  pages: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
