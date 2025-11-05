@@ -1,6 +1,12 @@
 import { Download, FileText, CheckSquare } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import jsPDF from "jspdf";
+import { 
+  movingChecklistContent, 
+  packingTipsContent, 
+  firstDayEssentialsContent 
+} from "@/lib/pdfContent";
 
 const resources = [
   {
@@ -24,33 +30,155 @@ const resources = [
 ];
 
 export const Resources = () => {
+  const generatePDF = (content: any, filename: string) => {
+    const doc = new jsPDF();
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const margin = 20;
+    const maxWidth = pageWidth - (margin * 2);
+    let yPosition = margin;
+
+    // Helper function to check if we need a new page
+    const checkNewPage = (heightNeeded: number) => {
+      if (yPosition + heightNeeded > pageHeight - margin) {
+        doc.addPage();
+        yPosition = margin;
+        return true;
+      }
+      return false;
+    };
+
+    // Helper function to add wrapped text
+    const addText = (text: string, fontSize: number, isBold: boolean = false, color: number[] = [0, 0, 0]) => {
+      doc.setFontSize(fontSize);
+      doc.setFont("helvetica", isBold ? "bold" : "normal");
+      doc.setTextColor(color[0], color[1], color[2]);
+      const lines = doc.splitTextToSize(text, maxWidth);
+      
+      lines.forEach((line: string) => {
+        checkNewPage(fontSize / 2);
+        doc.text(line, margin, yPosition);
+        yPosition += fontSize / 2;
+      });
+    };
+
+    // Title
+    doc.setFillColor(184, 134, 11); // Gold color
+    doc.rect(0, 0, pageWidth, 40, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(20);
+    doc.setFont("helvetica", "bold");
+    const titleLines = doc.splitTextToSize(content.title, maxWidth);
+    let titleY = 15;
+    titleLines.forEach((line: string) => {
+      doc.text(line, pageWidth / 2, titleY, { align: "center" });
+      titleY += 8;
+    });
+
+    if (content.subtitle) {
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "normal");
+      doc.text(content.subtitle, pageWidth / 2, titleY + 5, { align: "center" });
+    }
+
+    yPosition = 50;
+
+    // Intro text if available
+    if (content.intro) {
+      doc.setTextColor(0, 0, 0);
+      addText(content.intro, 10, false);
+      yPosition += 5;
+    }
+
+    // Sections
+    content.sections.forEach((section: any) => {
+      checkNewPage(20);
+      
+      // Section header with icon
+      const headerText = section.icon ? `${section.icon} ${section.timeline || section.category}` : (section.timeline || section.category);
+      doc.setFillColor(240, 240, 240);
+      doc.rect(margin - 5, yPosition - 5, maxWidth + 10, 12, 'F');
+      doc.setTextColor(184, 134, 11); // Gold
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "bold");
+      doc.text(headerText, margin, yPosition + 3);
+      yPosition += 15;
+
+      // Tasks or tips or items
+      const items = section.tasks || section.tips || section.items || [];
+      doc.setTextColor(0, 0, 0);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9);
+
+      items.forEach((item: string) => {
+        const lines = doc.splitTextToSize(item, maxWidth - 10);
+        checkNewPage(lines.length * 5 + 2);
+        
+        // Bullet point
+        doc.circle(margin + 2, yPosition - 1, 0.8, 'F');
+        
+        lines.forEach((line: string, index: number) => {
+          doc.text(line, margin + 6, yPosition);
+          yPosition += 4;
+        });
+        yPosition += 1;
+      });
+
+      yPosition += 5;
+    });
+
+    // Footer
+    checkNewPage(40);
+    yPosition += 10;
+    doc.setFillColor(50, 50, 50);
+    doc.rect(0, yPosition - 5, pageWidth, 50, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.text(content.footer.company, pageWidth / 2, yPosition + 5, { align: "center" });
+    
+    doc.setFontSize(9);
+    doc.setFont("helvetica", "normal");
+    doc.text(content.footer.address, pageWidth / 2, yPosition + 12, { align: "center" });
+    doc.text(`Phone: ${content.footer.phone}  |  Email: ${content.footer.email}`, pageWidth / 2, yPosition + 17, { align: "center" });
+    
+    if (content.footer.tagline) {
+      doc.setFontSize(8);
+      doc.setFont("helvetica", "italic");
+      doc.text(content.footer.tagline, pageWidth / 2, yPosition + 23, { align: "center" });
+    }
+    
+    if (content.footer.note) {
+      doc.setFontSize(8);
+      doc.text(content.footer.note, pageWidth / 2, yPosition + 28, { align: "center" });
+    }
+
+    // Save the PDF
+    doc.save(filename);
+  };
+
   const handleDownload = (resourceTitle: string) => {
-    // Create a simple checklist content
-    const content = `
-S&F MOVING - ${resourceTitle.toUpperCase()}
+    let content;
+    let filename;
 
-Thank you for choosing S&F Moving!
+    switch (resourceTitle) {
+      case "Moving Checklist":
+        content = movingChecklistContent;
+        filename = "SF-Moving-Complete-Moving-Checklist.pdf";
+        break;
+      case "Packing Tips":
+        content = packingTipsContent;
+        filename = "SF-Moving-Expert-Packing-Tips.pdf";
+        break;
+      case "First Day Essentials":
+        content = firstDayEssentialsContent;
+        filename = "SF-Moving-First-Day-Essentials.pdf";
+        break;
+      default:
+        return;
+    }
 
-This is a placeholder for the ${resourceTitle}. 
-Contact us for detailed guides and personalized moving assistance.
-
-S&F Moving
-366 Euclid Ave, Oakland, CA 94610
-Phone: +1 (510) 703-7904
-Email: f.zitouni@sf-moving.com
-
-Visit our website for more information.
-    `;
-
-    const blob = new Blob([content], { type: "text/plain" });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `SF-Moving-${resourceTitle.replace(/\s+/g, "-")}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
+    generatePDF(content, filename);
   };
 
   return (
