@@ -29,6 +29,7 @@ const resources = [
   },
 ];
 
+
 export const Resources = () => {
   const generatePDF = (content: any, filename: string) => {
     const doc = new jsPDF();
