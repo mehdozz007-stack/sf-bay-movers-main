@@ -1,8 +1,8 @@
 import { Card } from "@/components/ui/card";
 import brandedTruck1 from "@/assets/truck-engine.jpg";
 import brandedTruck2 from "@/assets/living-room.jpg";
-import brandedTruck3 from "@/assets/gallery-truck-branded-3.jpg";
-import professionalTeam from "@/assets/hero-moving.jpg";
+import brandedTruck3 from "@/assets/gallery-truck-branded-2.jpg";
+import professionalTeam from "@/assets/pro-team.jpg";
 import professionalEquipment from "@/assets/gallery-equipment-pro.jpg";
 import loadedTruck from "@/assets/gallery-loaded-professional.jpg";
 

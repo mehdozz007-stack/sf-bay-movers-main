@@ -1,6 +1,6 @@
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-moving-professional.jpg";
+import heroImage from "@/assets/pro-team.jpg";
 
 export const Hero = () => {
   const scrollToContact = () => {

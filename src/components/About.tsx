@@ -1,5 +1,5 @@
 import { Shield, Users, Award, DollarSign } from "lucide-react";
-import managerPhoto from "@/assets/manager-photo-new.jpg";
+import managerPhoto from "@/assets/manager-pic.jpg";
 
 const features = [
   {
