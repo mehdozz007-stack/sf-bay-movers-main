@@ -37,7 +37,7 @@ export const Contact = () => {
 
     try {
       // Send the form to FormSubmit.co AJAX endpoint using JSON
-      const endpoint = "https://formsubmit.co/ajax/114ac78b1aa0a4e27522efed0e63d846";
+      const endpoint = "https://formsubmit.co/ajax/f.zitouni@sf-moving.com";
 
       const payload = {
         name: formData.name,
