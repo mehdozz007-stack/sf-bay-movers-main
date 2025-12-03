@@ -36,40 +36,46 @@ export const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Send the form to FormSubmit.co which will forward to the provided email address
-      // const endpoint = "https://formsubmit.co/f.zitouni@sf-moving.com";
+      // Send the form to FormSubmit.co AJAX endpoint using JSON
       const endpoint = "https://formsubmit.co/ajax/114ac78b1aa0a4e27522efed0e63d846";
 
-      const payload = new FormData();
-      payload.append("name", formData.name);
-      payload.append("email", formData.email);
-      payload.append("phone", formData.phone);
-      payload.append("service", formData.service);
-      payload.append("moveDate", formData.moveDate);
-      payload.append("moveSize", formData.moveSize);
-      payload.append("message", formData.message);
-      // Optional FormSubmit directives
-      payload.append("_subject", "Website Quote Request - S&F Moving");
-      payload.append("_captcha", "false");
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        moveDate: formData.moveDate,
+        moveSize: formData.moveSize,
+        message: formData.message,
+        _subject: "Website Quote Request - S&F Moving",
+        _captcha: "false",
+      };
 
       const res = await fetch(endpoint, {
         method: "POST",
-        body: payload,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
-      // Read response text to help debug issues (FormSubmit often returns HTML)
-      const resText = await res.text();
-      // Log full response for debugging in browser console
-      // (safe: in production avoid logging PII; here it's useful for immediate debugging)
+      // Parse JSON response from FormSubmit
+      let json: any;
+      try {
+        json = await res.json();
+      } catch (parseErr) {
+        const raw = await res.text();
+        throw new Error(`Invalid response from FormSubmit: ${raw}`);
+      }
+
+      // Log response for debugging
       // eslint-disable-next-line no-console
       console.log("FormSubmit response status:", res.status);
       // eslint-disable-next-line no-console
-      console.log(resText);
+      console.log("FormSubmit response:", json);
 
-      if (!res.ok) {
-        // Surface the returned body (or a short excerpt) in the error toast
-        const excerpt = resText ? (resText.length > 300 ? resText.slice(0, 300) + "..." : resText) : `Status ${res.status}`;
-        throw new Error(`Submission failed: ${excerpt}`);
+      // Check for success (FormSubmit returns success: true or "true")
+      if (!res.ok || json.success === "false" || json.success === false) {
+        const msg = json.message || `Status ${res.status}`;
+        throw new Error(msg);
       }
 
       toast({
@@ -88,7 +94,8 @@ export const Contact = () => {
         message: "",
         consent: false,
       });
-    } catch (err) {
+    } catch (err: any) {
+      // eslint-disable-next-line no-console
       console.error(err);
       toast({
         title: "Submission Error",
