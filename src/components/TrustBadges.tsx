@@ -5,7 +5,7 @@ const badges = [
   {
     icon: Shield,
     title: "Fully Licensed",
-    description: "CA License #123456",
+    description: "CA License #3705653",
   },
   {
     icon: Lock,

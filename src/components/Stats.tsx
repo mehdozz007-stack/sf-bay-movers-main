@@ -3,12 +3,12 @@ import { Users, Truck, Star, Award } from "lucide-react";
 const stats = [
   {
     icon: Truck,
-    value: "500+",
+    value: "300+",
     label: "Successful Moves",
   },
   {
     icon: Users,
-    value: "10+",
+    value: "5+",
     label: "Years Experience",
   },
   {
