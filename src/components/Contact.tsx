@@ -55,8 +55,19 @@ export const Contact = () => {
         body: payload,
       });
 
+      // Read response text to help debug issues (FormSubmit often returns HTML)
+      const resText = await res.text();
+      // Log full response for debugging in browser console
+      // (safe: in production avoid logging PII; here it's useful for immediate debugging)
+      // eslint-disable-next-line no-console
+      console.log("FormSubmit response status:", res.status);
+      // eslint-disable-next-line no-console
+      console.log(resText);
+
       if (!res.ok) {
-        throw new Error(`Submission failed with status ${res.status}`);
+        // Surface the returned body (or a short excerpt) in the error toast
+        const excerpt = resText ? (resText.length > 300 ? resText.slice(0, 300) + "..." : resText) : `Status ${res.status}`;
+        throw new Error(`Submission failed: ${excerpt}`);
       }
 
       toast({
