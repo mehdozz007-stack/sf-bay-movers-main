@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export const Reviews = () => {
   const rating = 4.9;
-  const reviewCount = 127;
+  const reviewCount = 103;
 
   return (
     <section className="py-12 bg-gradient-to-b from-background to-muted/20">
@@ -37,7 +37,7 @@ export const Reviews = () => {
               <div className="text-sm text-muted-foreground">Would Recommend</div>
             </div>
             <div className="p-4 bg-muted/20 rounded-lg">
-              <div className="text-2xl font-heading font-bold text-gold mb-1">500+</div>
+              <div className="text-2xl font-heading font-bold text-gold mb-1">300+</div>
               <div className="text-sm text-muted-foreground">Successful Moves</div>
             </div>
           </div>
