@@ -365,7 +365,7 @@ export const Contact = () => {
                 variant="gold"
                 size="lg"
                 className="w-full"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !formData.email || !formData.phone || !validateEmail(formData.email) || !validatePhone(formData.phone)}
               >
                 {isSubmitting ? "Submitting..." : "Request a Quote"}
               </Button>
