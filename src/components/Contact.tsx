@@ -8,9 +8,23 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 
+const validateEmail = (email: string) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const validatePhone = (phone: string) => {
+  const phoneRegex = /^[\+]?[(]?[0-9]{1,3}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,9}$/;
+  return phone.length >= 10 && phoneRegex.test(phone.replace(/\s/g, ''));
+};
+
 export const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({
+    email: false,
+    phone: false,
+  });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,8 +36,40 @@ export const Contact = () => {
     consent: false,
   });
 
+  const handleEmailBlur = () => {
+    if (formData.email && !validateEmail(formData.email)) {
+      setErrors(prev => ({ ...prev, email: true }));
+    } else {
+      setErrors(prev => ({ ...prev, email: false }));
+    }
+  };
+
+  const handlePhoneBlur = () => {
+    if (formData.phone && !validatePhone(formData.phone)) {
+      setErrors(prev => ({ ...prev, phone: true }));
+    } else {
+      setErrors(prev => ({ ...prev, phone: false }));
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const emailValid = validateEmail(formData.email);
+    const phoneValid = validatePhone(formData.phone);
+
+    if (!emailValid || !phoneValid) {
+      setErrors({
+        email: !emailValid,
+        phone: !phoneValid,
+      });
+      toast({
+        title: "Invalid Input",
+        description: "Please check your email and phone number.",
+        variant: "destructive",
+      });
+      return;
+    }
     
     if (!formData.consent) {
       toast({
@@ -94,6 +140,7 @@ export const Contact = () => {
         message: "",
         consent: false,
       });
+      setErrors({ email: false, phone: false });
     } catch (err: any) {
       // eslint-disable-next-line no-console
       console.error(err);
@@ -203,29 +250,49 @@ export const Contact = () => {
               </div>
 
               <div>
-                <Label htmlFor="email" className="text-foreground">Email *</Label>
+                <Label htmlFor="email" className="text-foreground flex items-center gap-1">
+                  Email *
+                  {errors.email && <span className="text-destructive text-lg leading-none">*</span>}
+                </Label>
                 <Input
                   id="email"
                   type="email"
                   required
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="mt-2"
+                  onChange={(e) => {
+                    setFormData({ ...formData, email: e.target.value });
+                    if (errors.email) setErrors(prev => ({ ...prev, email: false }));
+                  }}
+                  onBlur={handleEmailBlur}
+                  className={`mt-2 transition-all ${errors.email ? 'border-destructive border-2 animate-pulse' : ''}`}
                   placeholder="your.email@example.com"
                 />
+                {errors.email && (
+                  <p className="text-destructive text-sm mt-1">Please enter a valid email address</p>
+                )}
               </div>
 
               <div>
-                <Label htmlFor="phone" className="text-foreground">Phone *</Label>
+                <Label htmlFor="phone" className="text-foreground flex items-center gap-1">
+                  Phone *
+                  {errors.phone && <span className="text-destructive text-lg leading-none">*</span>}
+                </Label>
                 <Input
                   id="phone"
                   type="tel"
                   required
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="mt-2"
+                  onChange={(e) => {
+                    setFormData({ ...formData, phone: e.target.value });
+                    if (errors.phone) setErrors(prev => ({ ...prev, phone: false }));
+                  }}
+                  onBlur={handlePhoneBlur}
+                  className={`mt-2 transition-all ${errors.phone ? 'border-destructive border-2 animate-pulse' : ''}`}
                   placeholder="+1 (555) 123-4567"
                 />
+                {errors.phone && (
+                  <p className="text-destructive text-sm mt-1">Please enter a valid phone number</p>
+                )}
               </div>
 
               <div>
