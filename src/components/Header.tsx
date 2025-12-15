@@ -96,20 +96,20 @@ export const Header = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <nav className="lg:hidden py-4 border-t border-primary/20 animate-fade-in">
-            <div className="flex flex-col gap-2">
+          <nav className="lg:hidden py-2 px-2 border-t border-primary/10 animate-fade-in">
+            <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="w-full text-left text-foreground hover:text-primary hover:bg-primary/5 transition-colors font-medium py-2 px-3 rounded-md"
+                  className="w-full text-left text-sm text-foreground hover:text-primary hover:bg-primary/5 transition-colors font-medium py-2 px-3 rounded"
                 >
                   {link.label}
                 </button>
               ))}
               <Button
-                variant="gold"
-                size="lg"
+                variant="goldOutline"
+                size="sm"
                 className="w-full mt-2"
                 onClick={() => scrollToSection("contact")}
               >
