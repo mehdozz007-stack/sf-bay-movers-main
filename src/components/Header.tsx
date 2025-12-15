@@ -42,20 +42,20 @@ export const Header = () => {
         isScrolled ? "bg-background shadow-lg border-t-2 border-primary" : "bg-background/95 backdrop-blur"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-5 lg:px-10">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-10">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <button
             onClick={() => scrollToSection("home")}
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-1 sm:gap-2 group flex-shrink-0"
             aria-label="S&F Moving home"
           >
             <div className="relative">
-              <HomeIcon className="w-8 h-8 text-primary transition-transform group-hover:scale-110" />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full"></div>
+              <HomeIcon className="w-6 sm:w-8 h-6 sm:h-8 text-primary transition-transform group-hover:scale-110" />
+              <div className="absolute -top-1 -right-1 w-2 sm:w-3 h-2 sm:h-3 bg-primary rounded-full"></div>
             </div>
-            <div className="flex flex-col">
-              <span className="font-heading text-xl font-bold text-foreground leading-none">
+            <div className="flex flex-col hidden sm:flex">
+              <span className="font-heading text-lg sm:text-xl font-bold text-foreground leading-none">
                 S&F Moving
               </span>
               <span className="text-xs text-primary font-medium">Best in the Bay Area</span>
@@ -86,7 +86,7 @@ export const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-foreground p-2"
+            className="lg:hidden text-foreground p-2 -mr-2 active:bg-primary/10 rounded transition-colors"
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
           >

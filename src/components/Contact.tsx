@@ -155,10 +155,10 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-card/50">
-      <div className="max-w-7xl mx-auto px-5 lg:px-10">
-        <div className="text-center mb-16">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-4">
+    <section id="contact" className="py-12 sm:py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-10">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4">
             Request a Quote
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -166,17 +166,17 @@ export const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Information */}
           <div className="space-y-8 animate-fade-up">
             <div>
-              <h3 className="font-heading text-2xl font-bold text-foreground mb-6">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-6">
                 Contact Information
               </h3>
               
-              <div className="space-y-4">
-                <div className="flex items-start gap-4 p-4 bg-background rounded-lg border border-primary/20">
-                  <Phone className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-background rounded-lg border border-primary/20">
+                  <Phone className="w-5 sm:w-6 h-5 sm:h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold text-foreground mb-1">Phone</p>
                     <a href="tel:+15107037904" className="text-muted-foreground hover:text-primary transition-colors block">
@@ -188,8 +188,8 @@ export const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 bg-background rounded-lg border border-primary/20">
-                  <Mail className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-background rounded-lg border border-primary/20">
+                  <Mail className="w-5 sm:w-6 h-5 sm:h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold text-foreground mb-1">Email</p>
                     <a href="mailto:f.zitouni@sf-moving.com" className="text-muted-foreground hover:text-primary transition-colors">
@@ -198,8 +198,8 @@ export const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 bg-background rounded-lg border border-primary/20">
-                  <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-background rounded-lg border border-primary/20">
+                  <MapPin className="w-5 sm:w-6 h-5 sm:h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold text-foreground mb-1">Address</p>
                     <p className="text-muted-foreground">
@@ -209,8 +209,8 @@ export const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 bg-background rounded-lg border border-primary/20">
-                  <User className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-background rounded-lg border border-primary/20">
+                  <User className="w-5 sm:w-6 h-5 sm:h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold text-foreground mb-1">Manager</p>
                     <p className="text-muted-foreground">Fadhel Zitouni</p>
@@ -220,7 +220,7 @@ export const Contact = () => {
             </div>
 
             {/* Map Embed */}
-            <div className="rounded-lg overflow-hidden border-2 border-primary/20 h-64">
+            <div className="rounded-lg overflow-hidden border-2 border-primary/20 h-48 sm:h-64">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.5427794944887!2d-122.26085842346489!3d37.82958101029999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f86b5c3c0c0c5%3A0x1234567890abcdef!2s366%20Euclid%20Ave%2C%20Oakland%2C%20CA%2094610!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
                 width="100%"
@@ -236,7 +236,7 @@ export const Contact = () => {
 
           {/* Quote Form */}
           <div className="animate-fade-up" style={{ animationDelay: "0.1s" }}>
-            <form onSubmit={handleSubmit} className="space-y-6 p-8 bg-background rounded-xl border-2 border-primary/20">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 p-4 sm:p-8 bg-background rounded-xl border-2 border-primary/20">
               <div>
                 <Label htmlFor="name" className="text-foreground">Name *</Label>
                 <Input

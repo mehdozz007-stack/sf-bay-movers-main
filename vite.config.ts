@@ -14,4 +14,18 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split large dependencies into separate chunks
+          "vendor-react": ["react", "react-dom"],
+          "vendor-ui": ["lucide-react"],
+          "vendor-html2canvas": ["html2canvas"],
+        },
+      },
+    },
+    // Warn only if chunks exceed 700 kB (instead of 500 kB default)
+    chunkSizeWarningLimit: 700,
+  },
 }));

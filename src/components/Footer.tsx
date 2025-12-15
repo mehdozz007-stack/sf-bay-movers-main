@@ -9,8 +9,8 @@ export const Footer = () => {
 
   return (
     <footer className="bg-background border-t-2 border-primary/20">
-      <div className="max-w-7xl mx-auto px-5 lg:px-10 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-10 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Column 1: Logo & Tagline */}
           <div>
             <div className="flex items-center gap-2 mb-4">
