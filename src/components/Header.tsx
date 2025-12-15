@@ -108,9 +108,9 @@ export const Header = () => {
                 </button>
               ))}
               <Button
-                variant="goldOutline"
+                variant="ghost"
                 size="sm"
-                className="w-full mt-2"
+                className="w-full mt-2 text-primary hover:text-primary hover:bg-primary/10"
                 onClick={() => scrollToSection("contact")}
               >
                 Get a Quote
