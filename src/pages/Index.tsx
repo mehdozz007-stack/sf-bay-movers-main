@@ -2,19 +2,8 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { SpecialOffer } from "@/components/SpecialOffer";
 import { Stats } from "@/components/Stats";
-import { Services } from "@/components/Services";
-import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { TrustBadges } from "@/components/TrustBadges";
-import { About } from "@/components/About";
-import { Gallery } from "@/components/Gallery";
-import { Reviews } from "@/components/Reviews";
 import { Testimonials } from "@/components/Testimonials";
-import { Guarantees } from "@/components/Guarantees";
-import { ComparisonTable } from "@/components/ComparisonTable";
-import { CostCalculator } from "@/components/CostCalculator";
-import { ServiceAreaMap } from "@/components/ServiceAreaMap";
-import { FAQ } from "@/components/FAQ";
-import { Resources } from "@/components/Resources";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
@@ -25,37 +14,8 @@ const Index = () => {
       <Header />
       <Hero />
       <Stats />
-      <section id="services">
-        <Services />
-      </section>
-      <section id="process">
-        <ProcessTimeline />
-      </section>
       <TrustBadges />
-      <section id="gallery">
-        <Gallery />
-      </section>
-      <section id="about">
-        <About />
-      </section>
-      <section id="reviews">
-        <Reviews />
-      </section>
       <Testimonials />
-      <Guarantees />
-      <ComparisonTable />
-      <section id="calculator">
-        <CostCalculator />
-      </section>
-      <section id="service-area">
-        <ServiceAreaMap />
-      </section>
-      <section id="faq">
-        <FAQ />
-      </section>
-      <section id="resources">
-        <Resources />
-      </section>
       <section id="contact">
         <Contact />
       </section>
@@ -95,52 +55,6 @@ const Index = () => {
               "longitude": -122.258712
             },
             "geoRadius": "50000"
-          },
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Moving Services",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "All Service Moving",
-                  "description": "Full-service residential and commercial moves with professional packing and secure transport."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Heavy Lifting Loading",
-                  "description": "Safe, insured heavy-lift specialists for pianos, safes, appliances and machinery."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Furniture Assembly",
-                  "description": "Expert assembly and reassembly for beds, wardrobes, shelving and office furniture."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Trash Furniture Removal",
-                  "description": "Responsible removal and disposal of unwanted furniture and bulky waste."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Cleaning",
-                  "description": "Post-move cleaning services so your old or new space is ready."
-                }
-              }
-            ]
           }
         })}
       </script>
@@ -149,3 +63,4 @@ const Index = () => {
 };
 
 export default Index;
+
