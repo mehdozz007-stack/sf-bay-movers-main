@@ -55,15 +55,15 @@ export const Header = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-1 sm:gap-2 group flex-shrink-0"
+            className="flex items-center gap-2 sm:gap-3 group flex-shrink-0"
             aria-label="S&F Moving home"
           >
             <div className="relative">
               <HomeIcon className="w-6 sm:w-8 h-6 sm:h-8 text-primary transition-transform group-hover:scale-110" />
               <div className="absolute -top-1 -right-1 w-2 sm:w-3 h-2 sm:h-3 bg-primary rounded-full"></div>
             </div>
-            <div className="flex flex-col hidden sm:flex">
-              <span className="font-heading text-lg sm:text-xl font-bold text-foreground leading-none">
+            <div className="flex flex-col">
+              <span className="font-heading text-sm sm:text-lg md:text-xl font-bold text-foreground leading-none">
                 S&F Moving
               </span>
               <span className="text-xs text-primary font-medium">Best in the Bay Area</span>
