@@ -161,7 +161,7 @@ export const Contact = () => {
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4">
             Request a Quote
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base sm:text-lg text-muted-foreground">
             Get in touch with us for a free, no-obligation quote
           </p>
         </div>

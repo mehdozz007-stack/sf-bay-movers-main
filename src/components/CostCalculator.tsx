@@ -127,13 +127,13 @@ export const CostCalculator = () => {
           </Button>
 
           {estimate !== null && (
-            <div className="bg-gold/10 border border-gold/30 rounded-lg p-6 text-center animate-fade-in">
-              <DollarSign className="w-8 h-8 text-gold mx-auto mb-2" />
-              <div className="text-sm text-muted-foreground mb-1">Estimated Cost</div>
-              <div className="text-4xl font-heading font-bold text-gold mb-2">
+            <div className="bg-gold/10 border border-gold/30 rounded-lg p-4 sm:p-6 text-center animate-fade-in">
+              <DollarSign className="w-6 sm:w-8 h-6 sm:h-8 text-gold mx-auto mb-2" />
+              <div className="text-xs sm:text-sm text-muted-foreground mb-1">Estimated Cost</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-gold mb-2">
                 ${estimate.toLocaleString()}
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 This is a rough estimate. Contact us for an accurate quote based on your specific needs.
               </p>
             </div>

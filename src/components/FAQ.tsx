@@ -61,17 +61,17 @@ export const FAQ = () => {
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="space-y-4">
+        <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
           {faqs.map((faq, index) => (
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-card border border-gold/20 rounded-lg px-6 hover:border-gold/40 transition-colors"
+              className="bg-card border border-gold/20 rounded-lg px-3 sm:px-6 hover:border-gold/40 transition-colors"
             >
-              <AccordionTrigger className="text-left font-heading font-semibold text-lg hover:text-gold">
+              <AccordionTrigger className="text-left font-heading font-semibold text-base sm:text-lg hover:text-gold">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
+              <AccordionContent className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

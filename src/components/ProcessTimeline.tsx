@@ -53,12 +53,12 @@ export const ProcessTimeline = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative mb-4">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gold-dark to-gold flex items-center justify-center shadow-gold-lg relative z-10">
-                    <step.icon className="w-10 h-10 text-black" />
+                  <div className="w-14 sm:w-16 md:w-20 h-14 sm:h-16 md:h-20 rounded-full bg-gradient-to-br from-gold-dark to-gold flex items-center justify-center shadow-gold-lg relative z-10">
+                    <step.icon className="w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 text-black" />
                   </div>
                   <div className="absolute inset-0 rounded-full bg-gold animate-pulse opacity-20"></div>
                 </div>
-                <h3 className="font-heading font-bold text-xl mb-2 text-foreground">
+                <h3 className="font-heading font-bold text-base sm:text-lg md:text-xl mb-2 text-foreground">
                   {step.title}
                 </h3>
                 <p className="text-sm text-muted-foreground">

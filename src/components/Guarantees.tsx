@@ -27,35 +27,35 @@ const guarantees = [
 
 export const Guarantees = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-muted/20 to-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gold mb-4">
+    <section className="py-12 sm:py-16 bg-gradient-to-b from-muted/20 to-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-gold mb-3 sm:mb-4">
             Our Guarantees To You
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
             We back our services with industry-leading guarantees because your peace of mind matters.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-8 max-w-5xl mx-auto">
           {guarantees.map((guarantee, index) => (
             <Card
               key={index}
-              className="p-8 bg-card border-gold/20 hover:border-gold/40 transition-all hover:shadow-gold-lg animate-fade-up"
+              className="p-4 sm:p-8 bg-card border-gold/20 hover:border-gold/40 transition-all hover:shadow-gold-lg animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 sm:gap-4">
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gold-dark to-gold flex items-center justify-center shadow-gold">
-                    <guarantee.icon className="w-8 h-8 text-black" />
+                  <div className="w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 rounded-full bg-gradient-to-br from-gold-dark to-gold flex items-center justify-center shadow-gold">
+                    <guarantee.icon className="w-6 sm:w-7 md:w-8 h-6 sm:h-7 md:h-8 text-black" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-heading font-bold mb-3">
+                  <h3 className="text-base sm:text-lg md:text-xl font-heading font-bold mb-2 sm:mb-3">
                     {guarantee.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                     {guarantee.description}
                   </p>
                 </div>
@@ -64,8 +64,8 @@ export const Guarantees = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-lg font-heading font-semibold mb-4">
+        <div className="text-center mt-8 sm:mt-12">
+          <p className="text-base sm:text-lg font-heading font-semibold mb-3 sm:mb-4">
             Ready to experience stress-free moving?
           </p>
           <a href="#contact">

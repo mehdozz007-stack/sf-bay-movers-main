@@ -26,25 +26,25 @@ const features = [
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 bg-card/50">
-      <div className="max-w-7xl mx-auto px-5 lg:px-10">
+    <section id="about" className="py-12 sm:py-20 bg-card/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-10">
         {/* Features Bar */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-20">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <div
                 key={feature.title}
-                className="text-center p-6 animate-fade-up"
+                className="text-center p-4 sm:p-6 animate-fade-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
-                  <Icon className="w-8 h-8 text-primary" />
+                <div className="inline-flex items-center justify-center w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 bg-primary/10 rounded-full mb-3 sm:mb-4">
+                  <Icon className="w-6 sm:w-7 md:w-8 h-6 sm:h-7 md:h-8 text-primary" />
                 </div>
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-2">
+                <h3 className="font-heading text-base sm:text-lg font-semibold text-foreground mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">{feature.description}</p>
               </div>
             );
           })}
