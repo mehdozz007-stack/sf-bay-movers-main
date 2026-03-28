@@ -1,4 +1,5 @@
 import { Home as HomeIcon, Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -103,8 +104,19 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-primary/20 pt-6 text-center">
-          <p className="text-sm text-muted-foreground">
+        <div className="border-t border-primary/20 pt-6">
+          <div className="text-center mb-4">
+            <div className="flex justify-center gap-6 text-sm">
+              <Link to="/legal" className="text-muted-foreground hover:text-primary transition-colors">
+                Legal Notice
+              </Link>
+              <span className="text-muted-foreground">•</span>
+              <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground text-center">
             © {currentYear} S&F Moving. All rights reserved. | Licensed & Insured
           </p>
         </div>
