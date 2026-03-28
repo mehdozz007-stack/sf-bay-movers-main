@@ -1,9 +1,30 @@
 import { Home as HomeIcon, Phone, Mail, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Footer = () => {
+  const navigate = useNavigate();
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleNavigation = (path: string, sectionId?: string) => {
+    if (sectionId) {
+      // Check if section exists on current page
+      const section = document.getElementById(sectionId);
+      if (section) {
+        scrollToSection(sectionId);
+      } else {
+        // Navigate to path and scroll after navigation
+        navigate(path);
+        setTimeout(() => {
+          document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    } else {
+      navigate(path);
+    }
   };
 
   const currentYear = new Date().getFullYear();
@@ -38,33 +59,33 @@ export const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-                <button
-                  onClick={() => scrollToSection("services")}
+                <Link
+                  to="/services"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Services
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("about")}
+                <Link
+                  to="/about"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   About
-                </button>
+                </Link>
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("contact")}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => handleNavigation("/", "contact")}
+                  className="text-muted-foreground hover:text-primary transition-colors text-left"
                 >
                   Request a Quote
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("contact")}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => handleNavigation("/", "contact")}
+                  className="text-muted-foreground hover:text-primary transition-colors text-left"
                 >
                   Contact
                 </button>
