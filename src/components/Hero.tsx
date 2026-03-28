@@ -52,21 +52,21 @@ export const Hero = () => {
           </div>
 
           {/* Trust Badges */}
-          <div className="mt-8 sm:mt-12 flex flex-wrap gap-3 sm:gap-6 text-xs sm:text-sm text-muted-foreground animate-fade-up" style={{ animationDelay: "0.3s" }}>
+          <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:flex sm:flex-wrap gap-4 sm:gap-6 text-xs sm:text-sm text-muted-foreground animate-fade-up" style={{ animationDelay: "0.3s" }}>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
               <span>Licensed & Insured</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
               <span>Local Bay Area Crew</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
               <span>Competitive Rates</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
               <span>Experienced Team</span>
             </div>
           </div>

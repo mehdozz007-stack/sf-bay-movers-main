@@ -319,7 +319,7 @@ export const Contact = () => {
                     type="date"
                     value={formData.moveDate}
                     onChange={(e) => setFormData({ ...formData, moveDate: e.target.value })}
-                    className="mt-2"
+                    className="mt-2 text-xs"
                   />
                 </div>
 
