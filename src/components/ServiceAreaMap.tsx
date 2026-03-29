@@ -277,7 +277,7 @@ export const ServiceAreaMap = () => {
           {/* Service Areas List */}
           <div>
             <h3 className="text-2xl font-heading font-bold mb-6">Major Cities We Serve</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-[600px] overflow-y-auto pr-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-[50vh] md:max-h-[600px] overflow-y-auto pr-2">
               {serviceAreas.map((city, index) => (
                 <button
                   key={index}

@@ -73,11 +73,11 @@ export const ComparisonTable = () => {
             <table className="w-full">
               <thead>
                 <tr className="bg-gold/10 border-b border-gold/20">
-                  <th className="text-left p-4 font-heading font-bold">Feature</th>
-                  <th className="text-center p-4 font-heading font-bold text-gold">
+                  <th className="text-left p-2 sm:p-4 font-heading font-bold text-xs sm:text-sm md:text-base">Feature</th>
+                  <th className="text-center p-2 sm:p-4 font-heading font-bold text-gold text-xs sm:text-sm md:text-base">
                     S&F Moving
                   </th>
-                  <th className="text-center p-4 font-heading font-bold text-muted-foreground">
+                  <th className="text-center p-2 sm:p-4 font-heading font-bold text-muted-foreground text-xs sm:text-sm md:text-base">
                     Other Companies
                   </th>
                 </tr>
@@ -89,21 +89,21 @@ export const ComparisonTable = () => {
                     className="border-b border-border hover:bg-muted/20 transition-colors animate-fade-up"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
-                    <td className="p-4 font-medium">{item.feature}</td>
-                    <td className="p-4 text-center">
+                    <td className="p-2 sm:p-4 font-medium text-xs sm:text-sm md:text-base">{item.feature}</td>
+                    <td className="p-2 sm:p-4 text-center">
                       {item.sfMoving === true ? (
-                        <Check className="w-6 h-6 text-gold mx-auto" />
+                        <Check className="w-5 sm:w-6 h-5 sm:h-6 text-gold mx-auto" />
                       ) : (
-                        <span className="text-sm text-muted-foreground">{item.sfMoving}</span>
+                        <span className="text-xs sm:text-sm text-muted-foreground">{item.sfMoving}</span>
                       )}
                     </td>
-                    <td className="p-4 text-center">
+                    <td className="p-2 sm:p-4 text-center">
                       {item.competitors === true ? (
-                        <Check className="w-6 h-6 text-muted-foreground mx-auto" />
+                        <Check className="w-5 sm:w-6 h-5 sm:h-6 text-muted-foreground mx-auto" />
                       ) : item.competitors === false ? (
-                        <X className="w-6 h-6 text-red-500 mx-auto" />
+                        <X className="w-5 sm:w-6 h-5 sm:h-6 text-red-500 mx-auto" />
                       ) : (
-                        <span className="text-sm text-muted-foreground">{item.competitors}</span>
+                        <span className="text-xs sm:text-sm text-muted-foreground">{item.competitors}</span>
                       )}
                     </td>
                   </tr>

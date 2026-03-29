@@ -53,26 +53,29 @@ export const Services = () => {
             return (
               <Card
                 key={service.title}
-                className="border-2 border-primary/20 bg-card hover:border-primary transition-all duration-300 hover:-translate-y-2 hover:shadow-gold group animate-fade-up"
+                className="border-2 border-primary/20 bg-card hover:border-primary transition-all duration-300 hover:-translate-y-2 hover:shadow-gold group animate-fade-up rounded-3xl"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Icon className="w-7 h-7 text-primary" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                      <Icon className="w-7 h-7 text-primary" />
+                    </div>
+                    <CardTitle className="text-base sm:text-lg md:text-xl font-heading text-foreground">
+                      {service.title}
+                    </CardTitle>
                   </div>
-                  <CardTitle className="text-base sm:text-lg md:text-xl font-heading text-foreground">
-                    {service.title}
-                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-muted-foreground">
                     {service.description}
                   </CardDescription>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="justify-center">
                   <Button
-                    variant="goldOutline"
-                    className="w-full"
+                    variant="gold"
+                    className="w-auto px-8 text-sm"
+                    size="lg"
                     onClick={scrollToContact}
                   >
                     Book this Service

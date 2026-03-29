@@ -45,23 +45,23 @@ export const ProcessTimeline = () => {
           {/* Timeline line */}
           <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gold/20 -translate-y-1/2"></div>
           
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 relative">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-4 relative">
             {steps.map((step, index) => (
               <div
                 key={index}
                 className="flex flex-col items-center text-center animate-fade-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="relative mb-4">
-                  <div className="w-14 sm:w-16 md:w-20 h-14 sm:h-16 md:h-20 rounded-full bg-gradient-to-br from-gold-dark to-gold flex items-center justify-center shadow-gold-lg relative z-10">
-                    <step.icon className="w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 text-black" />
+                <div className="relative mb-3 sm:mb-4">
+                  <div className="w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20 rounded-full bg-gradient-to-br from-gold-dark to-gold flex items-center justify-center shadow-gold-lg relative z-10">
+                    <step.icon className="w-6 sm:w-8 md:w-10 h-6 sm:h-8 md:h-10 text-black" />
                   </div>
                   <div className="absolute inset-0 rounded-full bg-gold animate-pulse opacity-20"></div>
                 </div>
-                <h3 className="font-heading font-bold text-base sm:text-lg md:text-xl mb-2 text-foreground">
-                  {step.title}
+                <h3 className="font-heading font-bold text-xs sm:text-base md:text-lg lg:text-xl mb-1 sm:mb-2 text-foreground">
+                  <span className="md:hidden">{index + 1}. </span>{step.title}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   {step.description}
                 </p>
               </div>
