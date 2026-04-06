@@ -1,5 +1,6 @@
 import { Shield, CheckCircle, Award, Lock, Clock, ThumbsUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Button } from "./ui/button";
 
 const badges = [
   {
@@ -67,6 +68,17 @@ export const TrustBadges = () => {
               </div>
             </Card>
           ))}
+        </div>
+
+        <div className="text-center mt-12 sm:mt-16">
+          <p className="text-base sm:text-lg font-heading font-semibold mb-3 sm:mb-4">
+            Checkout our free moving cost calculator to get an instant estimate for your move!
+          </p>
+          <a href="/resources#cost-calculator">
+            <Button variant="gold" size="lg">
+              Our free Calculator
+            </Button>
+          </a>
         </div>
       </div>
     </section>

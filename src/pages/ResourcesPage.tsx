@@ -15,7 +15,9 @@ const ResourcesPage = () => {
       <div className="pt-20">
         <CostCalculator />
         <FAQ />
-        <Resources />
+        <section id="resources">
+          <Resources />
+        </section>
         <section id="contact">
           <Contact />
         </section>

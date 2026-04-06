@@ -15,7 +15,7 @@ const AboutPage = () => {
       <div className="pt-20">
         <About />
         <Guarantees />
-        <Reviews />
+        {/* <Reviews /> */}
         <section id="contact">
           <Contact />
         </section>

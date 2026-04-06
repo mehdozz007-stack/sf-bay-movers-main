@@ -68,9 +68,9 @@ export const Guarantees = () => {
           <p className="text-base sm:text-lg font-heading font-semibold mb-3 sm:mb-4">
             Ready to experience stress-free moving?
           </p>
-          <a href="#contact">
+          <a href="/resources#resources">
             <Button variant="gold" size="lg">
-              Request Your Free Quote
+              Look out our stress-free moving services
             </Button>
           </a>
         </div>

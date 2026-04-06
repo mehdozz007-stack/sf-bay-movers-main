@@ -1,5 +1,6 @@
 import { Quote } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "./ui/button";
 
 const testimonials = [
   {
@@ -51,6 +52,16 @@ export const Testimonials = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="text-center mt-8 sm:mt-12">
+          <p className="text-base sm:text-lg font-heading font-semibold mb-3 sm:mb-4">
+            Ready to experience stress-free moving?
+          </p>
+          <a href="/resources#resources">
+            <Button variant="gold" size="lg">
+              Our stress-free moving services
+            </Button>
+          </a>
         </div>
       </div>
     </section>
