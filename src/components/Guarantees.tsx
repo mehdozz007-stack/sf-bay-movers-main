@@ -70,7 +70,7 @@ export const Guarantees = () => {
           </p>
           <a href="/resources#resources">
             <Button variant="gold" size="lg">
-              Look out our stress-free moving services
+              Our stress-free moving services
             </Button>
           </a>
         </div>
