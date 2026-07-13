@@ -28,6 +28,12 @@ export const About = () => {
   return (
     <section id="about" className="py-12 sm:py-20 bg-card/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-10">
+         <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4 text-center">
+              About S&F Moving
+          </h2>
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-center mb-12">
+            Dedicated to providing top-notch moving services in the Bay Area.
+          </p>
         {/* Features Bar */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-20">
           {features.map((feature, index) => {
@@ -53,9 +59,7 @@ export const About = () => {
         {/* About Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-up">
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">
-              About S&F Moving
-            </h2>
+           
             <div className="space-y-4 text-foreground">
               <p className="text-lg leading-relaxed">
                 S&F Moving is your trusted partner for all moving and logistics needs in the Bay Area. 
