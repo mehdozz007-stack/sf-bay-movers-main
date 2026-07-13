@@ -8,7 +8,7 @@ width, height = 1200, 630
 image = Image.new('RGB', (width, height), color=(0, 0, 0))
 
 # Charger le logo
-logo_path = 'src/assets/logo.jpeg'
+logo_path = 'src/assets/logo.png'
 if os.path.exists(logo_path):
     try:
         logo = Image.open(logo_path)
